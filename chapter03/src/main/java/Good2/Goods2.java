@@ -1,4 +1,4 @@
-package chapter03;
+package Good2;
 
 public class Goods2 {
 	private String name;
@@ -7,6 +7,19 @@ public class Goods2 {
 	private int countStock;
 	public String getName() {
 		return name;
+	}
+	public Goods2() {
+		this.name = null;
+		this.price = 0;
+		this.countSold = 0;
+		this.countStock = 0;
+	}
+	
+	public Goods2(String name, int price, int countSold, int countStock) {
+		this.name = name;
+		this.price = price;
+		this.countSold = countSold;
+		this.countStock = countStock;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -33,7 +46,10 @@ public class Goods2 {
 		this.countStock = countStock;
 	}
 	public void showInfo() {
-		System.out.printf("name: %s, price: %d, countSold: %d, countStock: %d",this.name,this.price,this.countSold,this.countStock);
-		
+		System.out.printf("name: %s, price: %d, countSold: %d, countStock: %d\n",this.name,this.price,this.countSold,this.countStock);	
+	}
+	public int f(double rate) {
+		int discountPrice = (int)(price * rate);
+		return discountPrice;
 	}
 }

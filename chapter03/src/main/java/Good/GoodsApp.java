@@ -1,4 +1,4 @@
-package mypackage;
+package Good;
 
 public class GoodsApp {
 

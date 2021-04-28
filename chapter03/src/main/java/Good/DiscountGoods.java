@@ -1,4 +1,4 @@
-package mypackage;
+package Good;
 
 public class DiscountGoods extends Goods {
 	private float discountRate = 0.5f;
