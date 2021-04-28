@@ -1,6 +1,8 @@
 # Java Practices
 
-Maven 으로 multi projects 생성
+term : 2021.04.27 ~ 
+
+desc: Maven 으로 multi projects 생성
 
 ## hello world
 Eclipse 처음 사용해보기
@@ -21,7 +23,7 @@ pom.xml 형태 살펴봄
 ## chapter03
 객체 지향 프로그래밍 연습
 
-* 클래스 연습 : Good, Good2, Song, paint
+* 클래스 연습 : Good, Good2, Song, paint, TV
 	* getter,setter,접근자,생성자
 
 * call by reference : swap
