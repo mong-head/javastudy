@@ -19,6 +19,7 @@ public class GoodsApp {
 			temp.setCost(Integer.parseInt(good_info[1]));
 			temp.setNum(Integer.parseInt(good_info[2]));
 			goods[i] = temp;
+			
 		}
 		// 상품 출력
 		for(Goods g : goods) {
