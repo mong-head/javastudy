@@ -33,15 +33,17 @@ gitignore file : 깃헙에 올릴 때에는 pom.xml이 올라가는 것이 중�
 객체 지향 프로그래밍 연습
 
 * 클래스 연습
-	* getter,setter,접근자 : Good, Good2, Song, TV
-	* 생성자 : Person, paint
-	* 상속 - type casting : Person
-	* interface : Paint (Drawable)
+	* getter,setter,접근자 : good, good2, song, tv
+	* 생성자 : person, paint
+	* 상속 - type casting : person
+	* interface : paint (Drawable)
 
 * call by reference : swap
 
-* static : StaticMethod
+* static : staticmethod
 	* instance function 및 variance 와 static function 및 variance 비교
+
+* 예외처리 : exception
 
 ## chapter04
 
