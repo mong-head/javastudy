@@ -35,6 +35,8 @@ gitignore file : 깃헙에 올릴 때에는 pom.xml이 올라가는 것이 중�
 * 클래스 연습
 	* getter,setter,접근자 : Good, Good2, Song, TV
 	* 생성자 : Person, paint
+	* 상속 - type casting : Person
+	* interface : Paint (Drawable)
 
 * call by reference : swap
 

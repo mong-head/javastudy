@@ -9,6 +9,8 @@ public class PaintApp {
 		point1.setY(20);
 		point1.show();
 		point2.show(true);
+//		drawColorPoint(point2);
+		draw(point2);
 		
 		point1.show(false);
 		
@@ -18,7 +20,35 @@ public class PaintApp {
 		((ColorPoint)point3).setColor("red"); //다운캐스팅으로 명시를 해야 자식 함수 사용 가능
 		
 		//동일 결과 (boolean있는거는 override안했지만 코드 재사용으로 같은 결과가 나옴)
-		point3.show();
-		point3.show(true); 
+//		point3.show();
+//		point3.show(true); 
+//		
+		//drawColorPoint(point3);
+		draw(point3);
+		
+		Point point4 = new ColorPoint(50,100,"red");
+		
+		Shape rect = new Rect(); //Rect rect = new Rect() 라고 해도 됨
+		Shape tri = new Triangle();
+		Shape cir = new Circle();
+//		drawShape(rect);
+//		drawShape(tri);
+//		drawShape(cir);
+		draw(rect);
+		draw(tri);
+		draw(cir);
+		
+		Drawable drawable = new GraphicText("hello");
+		draw(drawable);
+	}
+	
+//	public static void drawColorPoint(Point pt) {
+//		pt.show();
+//	}
+//	public static void drawShape(Shape shape) {
+//		shape.draw();
+//	}
+	public static void draw(Drawable drawable) {
+		drawable.draw();
 	}
 }
