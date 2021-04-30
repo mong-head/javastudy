@@ -50,16 +50,27 @@ gitignore file : 깃헙에 올릴 때에는 pom.xml이 올라가는 것이 중�
 ## chapter04
 API
 
-lang - object
+lang 
 
-io - string
+* object
+
+io
+
+* string, Wrapper
 
 util
+
+* Date, Calendar
 
 * collection
 	* vector
 		* 예전방식(test01)
 		* 현재방식(test02) - List(부모 referencing)
+	* arraylist, linkedlist : vector코드에서 자료구조만 변경
+	
+	* HashMap
+		* Key : value
+		* key 는 Set
 
 net
 
