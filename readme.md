@@ -48,17 +48,17 @@ gitignore file : 깃헙에 올릴 때에는 pom.xml이 올라가는 것이 중�
 * singleton : 객체 하나만 만들 수 있는 것 (chapter04의 Date의 Calendar관련)
 
 ## chapter04
-API
+API : lang, io, util, net
 
-lang 
+#### lang 
 
 * object
 
-io
+#### io
 
 * string, Wrapper
 
-util
+#### util
 
 * Date, Calendar
 
@@ -72,7 +72,7 @@ util
 		* Key : value
 		* key 는 Set
 
-net
+#### net
 
 
 ## practice01~05
