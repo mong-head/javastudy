@@ -1,13 +1,14 @@
 package prob5;
 
-public class MyStack {
+public class MyStack<T> {
 	private int size;
 	private int idx;
-	private String[] mystack;
+	private T[] mystack;
 	
+	@SuppressWarnings("unchecked")
 	public MyStack(int size) {
 		this.size = size;
-		mystack = new String[size];
+		mystack = (T[])new Object[size];
 		idx = -1;
 	}
 	public boolean isEmpty() {
@@ -22,20 +23,22 @@ public class MyStack {
 		if(idx>=size) {
 			resize(size+1);
 		}
-		mystack[idx] = value;
+		mystack[idx] = (T) value;
 	}
-	public String pop() throws MyStackException {
+	public T pop() throws MyStackException {
 		if(isEmpty()) {
 			throw new MyStackException();
 		}
-		String tmp = mystack[idx];
+		T tmp = mystack[idx];
 		idx--;
 		resize(size-1);
 		return tmp;
 		
 	}
+
+	@SuppressWarnings("unchecked")
 	public void resize(int size) {
-		String[] tmp = new String[size];
+		T[] tmp = (T[])new Object[size];
 		int min_size = size < this.size ? size : this.size;
 		for(int i=0;i<min_size;i++) {
 			tmp[i] = mystack[i];
