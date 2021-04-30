@@ -45,9 +45,18 @@ gitignore file : 깃헙에 올릴 때에는 pom.xml이 올라가는 것이 중�
 
 * 예외처리 : exception
 
+* singleton : 객체 하나만 만들 수 있는 것 (chapter04의 Date의 Calendar관련)
+
 ## chapter04
 API
 
+lang - object
+
+io - string
+
+util
+
+net
 
 
 ## practice01~05

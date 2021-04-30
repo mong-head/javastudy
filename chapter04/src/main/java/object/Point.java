@@ -1,4 +1,4 @@
-package chapter04;
+package object;
 
 public class Point {
 	private int x;

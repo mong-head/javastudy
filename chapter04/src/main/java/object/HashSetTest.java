@@ -1,4 +1,4 @@
-package chapter04;
+package object;
 
 import java.util.HashSet;
 import java.util.Set;
