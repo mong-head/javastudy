@@ -56,6 +56,11 @@ io - string
 
 util
 
+* collection
+	* vector
+		* 예전방식(test01)
+		* 현재방식(test02) - List(부모 referencing)
+
 net
 
 
