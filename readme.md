@@ -65,6 +65,7 @@ API : lang, io, util, net
 	* char
 		주 스트림 : Reader, Writer
 		보조 스트림 : BufferedRead
+ 
  -> Scanner내부 구조와 비슷함
 
 #### util
