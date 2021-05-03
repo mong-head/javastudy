@@ -1,4 +1,4 @@
-package practice_final;
+package prob1;
 
 public class Gugudan {
 	private int left;
