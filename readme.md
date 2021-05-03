@@ -58,6 +58,15 @@ API : lang, io, util, net
 
 * string, Wrapper
 
+* stream (주, 보조)
+	* byte
+		주 스트림 : InputStream, OutputStream
+		보조 스트림 : FilterInputStream
+	* char
+		주 스트림 : Reader, Writer
+		보조 스트림 : BufferedRead
+ -> Scanner내부 구조와 비슷함
+
 #### util
 
 * Date, Calendar
