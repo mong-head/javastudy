@@ -37,10 +37,13 @@ public class EchoServer2 {
 
 			// 3. accept
 			// client 연결 요청 기다림
-			// xshell; telnet 127.0.0.1 5000 하면 연결
-			Socket socket = serverSocket.accept(); // blocking : 대기상태다가 연결되면 밑 줄 진행
-			Thread thread = new EchoServerReceiveThread(socket);
-			thread.start();
+			// xshell; telnet 127.0.0.1 7000 하면 연결
+			// 보통 서버는 client하나 끝났다고 안끝남
+			while(true) {
+				Socket socket = serverSocket.accept(); // blocking : 대기상태다가 연결되면 밑 줄 진행
+				Thread thread = new EchoServerReceiveThread(socket);
+				thread.start();			
+			}
 
 		} catch (IOException e) {
 			e.printStackTrace();
