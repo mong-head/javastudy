@@ -46,7 +46,8 @@ public class EchoClient {
 					break;
 				}
 				// 5. write data
-				pw.print(line+"\n"); //\n : 경계 (대신 println써도 됨)
+				//pw.print(line+"\n"); //\n : 경계 (대신 println써도 됨) - 이거 안됨
+				pw.println(line);
 				
 				// 6. read data
 				String data = br.readLine();
