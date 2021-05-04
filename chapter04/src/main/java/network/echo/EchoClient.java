@@ -3,6 +3,7 @@ package network.echo;
 import java.io.BufferedReader;
 
 //TCPClient 복붙; 다른거 찾아보기
+//문제 : 다중처리 못함-single thread; 다중처리관련(multi-thread)은 thread package
 
 //[server?]실행 : cmd에서 실행시켜보기
 //cd E:\eclipse-workspace\javastudy\chapter04\target\classes
