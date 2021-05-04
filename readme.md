@@ -86,14 +86,14 @@ API : lang, io, util, net
 
 InetSocketAddress(socket) = InetAddress(IP) + Port(TCP)
 
-##### InetAddress 연습
+##### 1. InetAddress 연습
 
 * network.test
 	* Localhost : (cmd)ipconfig 관련 
 * network.util
 	* NSLookup : (cmd)nslookup 관련 
 	
-##### Socket 연습
+##### 2. Socket 연습
 
 net.Socket, net.InetSocketAddress, net.ServerSocket
 
