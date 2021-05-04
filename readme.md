@@ -84,6 +84,39 @@ API : lang, io, util, net
 
 #### net
 
+InetSocketAddress(socket) = InetAddress(IP) + Port(TCP)
+
+### InetAddress 연습
+
+* network.test
+	* Localhost : (cmd)ipconfig 관련 
+* network.util
+	* NSLookup : (cmd)nslookup 관련 
+	
+### Socket 연습
+
+net.Socket, net.InetSocketAddress, net.ServerSocket
+
+* network.test
+	* TCP Client / Server 
+
+* network.echo
+	* Echo Server / Client
+		* EchoServer : single-thread; client 여러개 연결 못함
+		* EchoServer2 : multi-thread; client 여러개 연결; thread 사용
+			* EchoServerReceiveThread : Thread 상속받음
+		* EchoServer3 : multi-thread; client 여러개 연결; Runnable 사용
+			* EchoServerRunnableImpl : Runnable
+			
+* thread : multi-thread 연습
+	* ThreadEx01 : mainThread, DigitThread
+	* ThreadEx02 : mainThread, DigitThread, AlphabetThread 
+		* mainThread가 먼저끝나도 다른 thread끝날 때까지 끝나지 않음
+	* ThreadEx03 : mainThread, DigitThread, AlphabetThread, UppercaseAlphabetThread
+		* thread 만드는 2가지 방법
+			1. Thread 상속 ; Digit, Alphabet
+			2. Runnable ; UppercaseAlphabet
+	
 
 ## practice01~05
 기본 프로그래밍 문제 풀이
