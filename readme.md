@@ -50,11 +50,11 @@ gitignore file : 깃헙에 올릴 때에는 pom.xml이 올라가는 것이 중�
 ## chapter04
 API : lang, io, util, net
 
-#### lang 
+### lang 
 
 * object
 
-#### io
+### io
 
 * string, Wrapper
 
@@ -68,7 +68,7 @@ API : lang, io, util, net
  
  	-> Scanner내부 구조와 비슷함
 
-#### util
+### util
 
 * Date, Calendar
 
@@ -82,7 +82,7 @@ API : lang, io, util, net
 		* Key : value
 		* key 는 Set
 
-#### net
+### net
 
 InetSocketAddress(socket) = InetAddress(IP) + Port(TCP)
 
