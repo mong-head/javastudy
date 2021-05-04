@@ -1,12 +1,10 @@
 package network.echo;
 
-import java.io.BufferedReader;
-
 //client : xshell쪽
 //server : here
-
 //TCPServer 코드 복붙 - 몇몇 고침; 다른 점 찾으며 다시 공부하기
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
