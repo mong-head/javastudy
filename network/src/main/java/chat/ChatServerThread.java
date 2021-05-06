@@ -10,6 +10,8 @@ import java.io.Writer;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketException;
+import java.util.Base64;
+import java.util.Base64.Decoder;
 import java.util.List;
 
 public class ChatServerThread extends Thread {
@@ -47,7 +49,7 @@ public class ChatServerThread extends Thread {
 				ChatServer.log("received:" + request);
 				
 				//4. protocol 분석
-				String[] tokens = request.split(":");
+				String[] tokens = request.split(" ");
 				
 				if("join".equals(tokens[0])) {
 					doJoin(tokens[1],pw);
@@ -115,8 +117,10 @@ public class ChatServerThread extends Thread {
 	}
 	//message protocol
 	private void doMessage(String message) {
-		//고치기
-		broadcast(nickname+"님 : "+message);
+		Decoder decoder = Base64.getDecoder(); 
+		byte[] decodedMessage = decoder.decode(message);
+
+		broadcast(nickname+"님 : "+ new String(decodedMessage));
 	}
 	//quit protocol
 	private void doQuit(Writer writer) {

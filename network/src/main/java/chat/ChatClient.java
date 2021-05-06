@@ -16,6 +16,7 @@ public class ChatClient {
 	public static void main(String[] args) {
 		Socket socket = null;
 		Scanner scanner = null;
+		ChatClientThread thread = null;
 
 		try {
 			// 0. Scanner 생성
@@ -33,7 +34,7 @@ public class ChatClient {
 //			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(),"utf-8"));
 			
 			// 5. ChatClientThread start
-			ChatClientThread thread = new ChatClientThread(socket);
+			thread = new ChatClientThread(socket);
 			thread.start();
 			
 			// 4. join protocol
@@ -43,7 +44,7 @@ public class ChatClient {
 			
 			// 6. keyboard 입력 처리
 			while(true) {
-				System.out.print(">>");
+				//System.out.print(">>");
 				String input = scanner.nextLine();
 				
 				if("quit".equals(input) == true) {
@@ -57,6 +58,7 @@ public class ChatClient {
 			}
 			
 		} catch(SocketException e) {
+			thread.doQuit();
 			log("suddenly closed by server");
 		} catch (IOException e) {
 			e.printStackTrace();

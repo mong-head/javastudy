@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Base64;
+import java.util.Base64.Encoder;
 
 public class ChatClientThread extends Thread{
 	
@@ -52,15 +54,18 @@ public class ChatClientThread extends Thread{
 		
 	}
 	public void doQuit() {
-		pw.println("quit:");
+		pw.println("quit ");
 		pw.flush();
 	}
 	public void doMessage(String message) {
-		pw.println("message:"+message); //message부분은 base64로 encoding해야함
+		Encoder encoder = Base64.getEncoder();
+		byte[] encodedMessage = encoder.encode(message.getBytes());
+
+		pw.println("message "+new String(encodedMessage)); //message부분은 base64로 encoding해야함
 		pw.flush();
 	}
 	public void doJoin(String nickname) {
-		pw.println("join:"+nickname);
+		pw.println("join "+nickname);
 		pw.flush();
 	}
 
