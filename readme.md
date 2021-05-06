@@ -118,6 +118,15 @@ net.Socket, net.InetSocketAddress, net.ServerSocket
 		* thread 만드는 2가지 방법
 			1. Thread 상속 ; Digit, Alphabet
 			2. Runnable ; UppercaseAlphabet
+
+##### 3. webserver
+
+* httpd
+	
+	<img src="https://user-images.githubusercontent.com/52481037/117239269-7143cd00-ae69-11eb-8b40-4a251b566047.png" width="600" height="300">
+
+* webapp
+	* http, css등등
 	
 
 ## practice01~05
