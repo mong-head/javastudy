@@ -112,20 +112,37 @@ public class RequestHandler extends Thread {
 		
 	}
 	
-	private void response400Error(OutputStream os, String string, String string2) {
-		// 응답 예시 - 만들기
+	private void response400Error(OutputStream os, String url, String protocol) throws IOException{
+		// 응답 예시
 		//HTTP/1.1 400 Bad Request\r\n
 		//Content-Type:text/html; charset=utf-8\r\n
 		//\r\n
 		//HTML 에러 문서 (./webapp/error/400.html)
+		url = "/error/400.html";
+		File file = new File(DOCUMENT_ROOT + url);
 		
+		byte[] body = Files.readAllBytes(file.toPath()); //IOException일어날 수 있음, throws로 처리
+		String contentType = Files.probeContentType(file.toPath());
+		os.write( (protocol+" 400 Bad Request\r\n").getBytes( "UTF-8" ) );
+		os.write( ("Content-Type:"+contentType +"; charset=utf-8\r\n").getBytes( "UTF-8" ) );
+		os.write( "\r\n".getBytes() ); //body임을 알려주기 위함으로 개행을 넣음 - 밑에는 이제 body내용
+		os.write(body);
 	}
-	private void response404Error(OutputStream os, String url, String protocol) {
-		// 응답 예시 - 만들기
+	private void response404Error(OutputStream os, String url, String protocol) throws IOException{
+		// 응답 예시
 		//HTTP/1.1 404 File Not Found\r\n
 		//Content-Type:text/html; charset=utf-8\r\n
 		//\r\n
 		//HTML 에러 문서 (./webapp/error/404.html)
+		url = "/error/404.html";
+		File file = new File(DOCUMENT_ROOT + url);
+		
+		byte[] body = Files.readAllBytes(file.toPath()); //IOException일어날 수 있음, throws로 처리
+		String contentType = Files.probeContentType(file.toPath());
+		os.write( (protocol+" 404 File Not Found\r\n").getBytes( "UTF-8" ) );
+		os.write( ("Content-Type:"+contentType +"; charset=utf-8\r\n").getBytes( "UTF-8" ) );
+		os.write( "\r\n".getBytes() ); //body임을 알려주기 위함으로 개행을 넣음 - 밑에는 이제 body내용
+		os.write(body);
 	}
 
 	public void consoleLog( String message ) {
