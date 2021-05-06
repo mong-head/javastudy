@@ -1,4 +1,4 @@
-package network.echo;
+package echo;
 
 //client : xshell쪽
 //server : here

@@ -1,4 +1,4 @@
-package network.test;
+package test;
 
 //client : xshell쪽
 //server : here

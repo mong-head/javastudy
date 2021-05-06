@@ -1,4 +1,4 @@
-package network.test;
+package test;
 
 //[server?]실행 : cmd에서 실행시켜보기
 //cd E:\eclipse-workspace\javastudy\chapter04\target\classes

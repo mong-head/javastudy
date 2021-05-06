@@ -1,4 +1,4 @@
-package network.util;
+package util;
 
 //nslookup 구현
 

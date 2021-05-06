@@ -1,4 +1,4 @@
-package network.echo;
+package echo;
 
 //multi-thread
 //cmd server, eclipse client, cmd client

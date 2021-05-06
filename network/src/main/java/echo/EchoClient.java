@@ -1,4 +1,4 @@
-package network.echo;
+package echo;
 
 //TCPClient 복붙; 다른거 찾아보기
 

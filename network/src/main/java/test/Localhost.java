@@ -1,4 +1,4 @@
-package network.test;
+package test;
 
 //ipconfig 관련
 
