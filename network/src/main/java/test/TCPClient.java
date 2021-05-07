@@ -11,6 +11,7 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketException;
+import java.net.SocketTimeoutException;
 
 public class TCPClient {
 	private static final String SERVER_IP = "127.0.0.1";
@@ -20,8 +21,27 @@ public class TCPClient {
 		Socket socket = null;
 		try {
 			// 1. socket 생성
-			 socket = new Socket();
-
+			socket = new Socket();
+			 
+			// 1-1. socket buffer size 확인
+			int receiveBufferSize = socket.getReceiveBufferSize();
+			int sendBufferSize = socket.getSendBufferSize();
+			System.out.printf("[client] (변경 전)receive buffer size : %d, send buffer size : %d\n",receiveBufferSize, sendBufferSize);
+			
+			// 1-2. socket buffer size 변경
+			socket.setReceiveBufferSize(1024 * 10);
+			socket.setSendBufferSize(1024 * 10);
+			receiveBufferSize = socket.getReceiveBufferSize();
+			sendBufferSize = socket.getSendBufferSize();
+			System.out.printf("[client] (변경 후)receive buffer size : %d, send buffer size : %d\n",receiveBufferSize, sendBufferSize);
+			
+			// 1-3. SO_NODELAY(Nagle Algorithm off - 대용량 파일을 빨리 올리고 싶은 경우만 사용)
+			socket.setTcpNoDelay(true); //보통은 끄는게 좋음
+			
+			// 1-4. SO_TIMEOUT
+			socket.setSoTimeout(1000); //1초 기다림
+			
+			
 			// 2. server connection
 			socket.connect(new InetSocketAddress(SERVER_IP, SERVER_PORT));
 			System.out.println("[client] connected");
@@ -44,6 +64,8 @@ public class TCPClient {
 			
 			data = new String(buffer, 0 ,readByteCount, "utf-8");
 			System.out.println("[client] received:"+data);
+		} catch(SocketTimeoutException e) {
+			System.out.println("[client] time out");
 		} catch(SocketException e) {
 			System.out.println("[client] suddenly closed by server");
 		} catch (IOException e) {
