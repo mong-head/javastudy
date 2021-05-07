@@ -26,16 +26,20 @@ public class ChatServerThread extends Thread {
 	}
 	@Override
 	public void run() {
-		//1. remote Host Information
-		InetSocketAddress inetRemoteSocketAddress = (InetSocketAddress)(socket.getRemoteSocketAddress());
-		String remoteHostAddress = inetRemoteSocketAddress.getAddress().getHostAddress();
-		int remoteHostPort = inetRemoteSocketAddress.getPort();
-		ChatServer.log("connected by client["+remoteHostAddress+":"+remoteHostPort+"]");
+		
+		BufferedReader br = null;
+		PrintWriter pw = null;
 		
 		try {
+			//1. remote Host Information
+			InetSocketAddress inetRemoteSocketAddress = (InetSocketAddress)(socket.getRemoteSocketAddress());
+			String remoteHostAddress = inetRemoteSocketAddress.getAddress().getHostAddress();
+			int remoteHostPort = inetRemoteSocketAddress.getPort();
+			ChatServer.log("connected by client["+remoteHostAddress+":"+remoteHostPort+"]");
+			
 			//2. stream 받아오기
-			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(),"utf-8"));
-			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(),"utf-8"));
+			br = new BufferedReader(new InputStreamReader(socket.getInputStream(),"utf-8"));
+			pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(),"utf-8"));
 			
 			while(true) {
 				//3. data read
@@ -64,10 +68,13 @@ public class ChatServerThread extends Thread {
 			}
 		} catch (SocketException e) {
 			ChatServer.log("suddenly closed by client");
+			doQuit(pw);
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
+			doQuit(pw);
 		} catch (IOException e) {
 			e.printStackTrace();
+			doQuit(pw);
 		} finally {
 			try {
 				if(socket != null && socket.isClosed() == false) {
