@@ -33,26 +33,31 @@ public class ChatClient {
 //			BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream(),"utf-8"));
 //			PrintWriter pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(),"utf-8"));
 			
-			// 5. ChatClientThread start
-			thread = new ChatClientThread(socket);
-			thread.start();
 			
-			// 4. join protocol
+			// 4. nickname
 			System.out.print("닉네임>> ");
 			String nickname = scanner.nextLine();			
-			thread.doJoin(nickname);
 			
-			// 6. keyboard 입력 처리
+			// 5. ChatClientThread start
+			thread = new ChatClientThread(socket);
+			// 6. join protocol
+			thread.doJoin(nickname);
+			thread.start();
+			
+			// 7. keyboard 입력 처리
 			while(true) {
 				//System.out.print(">>");
+				if( scanner.hasNextLine() == false ) {
+					continue;
+				}
 				String input = scanner.nextLine();
 				
 				if("quit".equals(input) == true) {
-					// 7. quit protocol 처리 - quit보내야함
+					// 8. quit protocol 처리 - quit보내야함
 					thread.doQuit();
 					break;
 				} else {
-					// 8. message protocol 처리 - message protocol 보내기
+					// 9. message protocol 처리 - message protocol 보내기
 					thread.doMessage(input);
 				}
 			}

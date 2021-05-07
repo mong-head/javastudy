@@ -19,6 +19,8 @@ public class ChatServerThread extends Thread {
 	private Socket socket;
 	private String nickname;
 	private List<Writer> writer_pool;
+	private BufferedReader br;
+	private PrintWriter pw;
 	
 	public ChatServerThread(Socket socket,List<Writer> writer_pool) {
 		this.socket = socket;
@@ -27,8 +29,8 @@ public class ChatServerThread extends Thread {
 	@Override
 	public void run() {
 		
-		BufferedReader br = null;
-		PrintWriter pw = null;
+		br = null;
+		pw = null;
 		
 		try {
 			//1. remote Host Information
@@ -39,7 +41,7 @@ public class ChatServerThread extends Thread {
 			
 			//2. stream 받아오기
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream(),"utf-8"));
-			pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(),"utf-8"));
+			pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(),"utf-8"),true);
 			
 			while(true) {
 				//3. data read
@@ -118,7 +120,7 @@ public class ChatServerThread extends Thread {
 		
 		//ack - 참여 성공을 클라이언트에게 알려줌
 		PrintWriter pw = (PrintWriter)writer;
-		pw.println("성공적으로 방에 입장하였습니다.");
+		pw.println("JOIN:OK");
 		pw.flush();
 		
 	}

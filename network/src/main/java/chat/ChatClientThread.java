@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.Socket;
 import java.util.Base64;
 import java.util.Base64.Encoder;
@@ -22,15 +23,20 @@ public class ChatClientThread extends Thread{
 	
 	public ChatClientThread(Socket socket) {
 		this.socket = socket;
+		try {
+			//reader,writer 생성
+			br = new BufferedReader(new InputStreamReader(socket.getInputStream(),"utf-8"));
+			pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(),"utf-8"),true);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
 	public void run() {
 		try {
-			//reader,writer 생성
-			br = new BufferedReader(new InputStreamReader(socket.getInputStream(),"utf-8"));
-			pw = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(),"utf-8"));
-			
 			while(true) {
 				String message = br.readLine();
 				if(message == null) {
@@ -65,8 +71,20 @@ public class ChatClientThread extends Thread{
 		pw.flush();
 	}
 	public void doJoin(String nickname) {
-		pw.println("join "+nickname);
-		pw.flush();
+
+		try {
+			pw.println("join "+nickname); //보내고
+			pw.flush();
+			String ack = br.readLine(); // 받음
+			if ("JOIN:OK".equals(ack)) {
+				System.out.println("성공적으로 입장하였습니다.");
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
 	}
 
 }
