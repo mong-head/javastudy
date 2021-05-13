@@ -125,6 +125,8 @@ net.Socket, net.InetSocketAddress, net.ServerSocket
 	
 	<img src="https://user-images.githubusercontent.com/52481037/117239269-7143cd00-ae69-11eb-8b40-4a251b566047.png" width="600" height="300">
 
+	* httpd : eclipse 환경 실행
+	* httpd2 : linux 환경 실행
 * webapp
 	* http, css등등
 	
