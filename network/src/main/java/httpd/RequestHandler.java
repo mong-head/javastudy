@@ -13,8 +13,14 @@ import java.net.Socket;
 import java.nio.file.Files;
 
 public class RequestHandler extends Thread {
-	private static final String DOCUMENT_ROOT = "./webapp"; //webapp
 	private Socket socket;
+	//private static final String DOCUMENT_ROOT = "./webapp"; //webapp - eclipse실행할 때 코드
+	
+	//리눅스에서 실행할 때 코드(jar의 webapp를 찾아야함)
+	private static String DOCUMENT_ROOT = "./webapp"; 
+	static {
+		DOCUMENT_ROOT = RequestHandler.class.getClass().getResource("/webapp").getPath();
+	}
 	
 	public RequestHandler( Socket socket ) {
 		this.socket = socket;
