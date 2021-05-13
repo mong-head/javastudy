@@ -15,7 +15,7 @@ import java.net.URLConnection;
 
 public class RequestHandler extends Thread {
 	private Socket socket;
-	private static final String DOCUMENT_ROOT = "./webapp"; //webapp - eclipse실행할 때 코드 
+	private static final String DOCUMENT_ROOT = "/webapp"; //webapp - eclipse실행할 때 코드 
 	
 	public RequestHandler( Socket socket ) {
 		this.socket = socket;
