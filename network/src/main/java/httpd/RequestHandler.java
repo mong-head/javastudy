@@ -120,6 +120,10 @@ public class RequestHandler extends Thread {
 		//HTML 에러 문서 (./webapp/error/400.html)
 		url = "/error/400.html";
 		File file = new File(DOCUMENT_ROOT + url);
+		if(file.exists() == false) {
+			System.out.println("file not found");
+			return;
+		}
 		
 		byte[] body = Files.readAllBytes(file.toPath()); //IOException일어날 수 있음, throws로 처리
 		String contentType = Files.probeContentType(file.toPath());
@@ -136,6 +140,10 @@ public class RequestHandler extends Thread {
 		//HTML 에러 문서 (./webapp/error/404.html)
 		url = "/error/404.html";
 		File file = new File(DOCUMENT_ROOT + url);
+		if(file.exists() == false) {
+			System.out.println("file not found");
+			return;
+		}
 		
 		byte[] body = Files.readAllBytes(file.toPath()); //IOException일어날 수 있음, throws로 처리
 		String contentType = Files.probeContentType(file.toPath());
