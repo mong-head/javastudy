@@ -121,7 +121,7 @@ public class RequestHandler extends Thread {
 		url = "/error/400.html";
 		File file = new File(DOCUMENT_ROOT + url);
 		if(file.exists() == false) {
-			System.out.println("file not found");
+			System.out.println("file not found:"+file.getAbsolutePath());
 			return;
 		}
 		
@@ -141,7 +141,7 @@ public class RequestHandler extends Thread {
 		url = "/error/404.html";
 		File file = new File(DOCUMENT_ROOT + url);
 		if(file.exists() == false) {
-			System.out.println("file not found");
+			System.out.println("file not found:"+ file.getAbsolutePath());
 			return;
 		}
 		
