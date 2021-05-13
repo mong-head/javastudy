@@ -19,9 +19,16 @@ import java.net.SocketException;
 import java.util.Scanner;
 
 public class EchoClient {
-	private static final String SERVER_IP = "127.0.0.1";
-
+	//private static final String SERVER_IP = "127.0.0.1";
+	private static String SERVER_IP = "";
+	
 	public static void main(String[] args) {
+		if(args.length==0) {
+			System.out.println("실행방법 : Java EchoClient ServerIP");
+			return;
+		}
+		SERVER_IP = args[0];	//eclipse : Run as - Run Configurations - argument : 192.168.254.40 주기
+		
 		Socket socket = null;
 		Scanner scanner = null;
 		try {
