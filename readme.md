@@ -1,4 +1,4 @@
-# Java Practices
+# Java Study
 
 term : 2021.04.27 ~ 2021.05.14
 
