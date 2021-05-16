@@ -1,6 +1,6 @@
 # Java Practices
 
-term : 2021.04.27 ~ 
+term : 2021.04.27 ~ 2021.05.14
 
 desc: Maven 으로 multi projects 생성
 
