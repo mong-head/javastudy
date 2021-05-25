@@ -5,6 +5,7 @@ term : 2021.04.27 ~
 desc: Maven 으로 multi projects 생성
 
 * pom에 밑의 내용 추가 (항상 이 내용을 추가함)
+
 ```xml
   <properties>
 	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
